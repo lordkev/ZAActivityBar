@@ -38,6 +38,8 @@
 
 + (void) show;
 + (void) dismiss;
++ (void) hide;
++ (void) unhide;
 
 + (void) showWithStatus:(NSString *)status;
 + (void) showSuccessWithStatus:(NSString *)status;

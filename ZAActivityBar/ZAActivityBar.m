@@ -503,6 +503,18 @@
 
 ///////////////////////////////////////////////////////////////
 
+#pragma mark - Hide/Unhide Methods
+
++ (void) hide {
+    [[[ZAActivityBar sharedView] overlayWindow] setHidden:YES];
+}
+
++ (void) unhide {
+    [[[ZAActivityBar sharedView] overlayWindow] setHidden:NO];
+}
+
+///////////////////////////////////////////////////////////////
+
 #pragma mark - Helpers
 
 - (float) getOffscreenYPosition {
