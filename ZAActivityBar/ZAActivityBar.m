@@ -25,6 +25,7 @@
 @interface ZAActivityAction : NSObject
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *status;
+@property (nonatomic,assign) BOOL hidden;
 @end
 
 @implementation ZAActivityAction
@@ -227,8 +228,10 @@
 
         self.fadeOutTimer = nil;
         self.imageView.hidden = YES;
-
-        [self.overlayWindow setHidden:NO];
+        
+        if (!self.hidden) {
+            [self.overlayWindow setHidden:NO];
+        }
         [self.spinnerView startAnimating];
         
         [self setStatus:status];
@@ -506,10 +509,12 @@
 #pragma mark - Hide/Unhide Methods
 
 + (void) hide {
+    [ZAActivityBar sharedView].hidden = YES;
     [[[ZAActivityBar sharedView] overlayWindow] setHidden:YES];
 }
 
 + (void) unhide {
+    [ZAActivityBar sharedView].hidden = NO;
     [[[ZAActivityBar sharedView] overlayWindow] setHidden:NO];
 }
 
