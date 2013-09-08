@@ -76,17 +76,26 @@
 + (void) setLocationBottom
 {
     [ZAActivityBar sharedView].offset = 0.0f;
+    CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
+    position.y = [[ZAActivityBar sharedView] getBarYPosition];
+    [[ZAActivityBar sharedView].barView.layer setPosition:position];
 }
 
 + (void) setLocationTabBar
 {
     [ZAActivityBar sharedView].offset = 49.0f;
+    CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
+    position.y = [[ZAActivityBar sharedView] getBarYPosition];
+    [[ZAActivityBar sharedView].barView.layer setPosition:position];
 }
 
 + (void) setLocationNavBar
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [ZAActivityBar sharedView].offset = screenRect.size.height - 120.0f;
+    CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
+    position.y = [[ZAActivityBar sharedView] getBarYPosition];
+    [[ZAActivityBar sharedView].barView.layer setPosition:position];
 }
 
 ///////////////////////////////////////////////////////////////
