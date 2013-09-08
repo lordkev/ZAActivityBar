@@ -73,29 +73,29 @@
 
 #pragma mark - Offset Properties
 
-+ (void) setLocationBottom
-{
-    [ZAActivityBar sharedView].offset = 0.0f;
++ (void) updateYPosition {
     CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
     position.y = [[ZAActivityBar sharedView] getBarYPosition];
     [[ZAActivityBar sharedView].barView.layer setPosition:position];
 }
 
++ (void) setLocationBottom
+{
+    [ZAActivityBar sharedView].offset = 0.0f;
+    [self updateYPosition];
+}
+
 + (void) setLocationTabBar
 {
     [ZAActivityBar sharedView].offset = 49.0f;
-    CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
-    position.y = [[ZAActivityBar sharedView] getBarYPosition];
-    [[ZAActivityBar sharedView].barView.layer setPosition:position];
+    [self updateYPosition];
 }
 
 + (void) setLocationNavBar
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [ZAActivityBar sharedView].offset = screenRect.size.height - 120.0f;
-    CGPoint position = [ZAActivityBar sharedView].barView.layer.position;
-    position.y = [[ZAActivityBar sharedView] getBarYPosition];
-    [[ZAActivityBar sharedView].barView.layer setPosition:position];
+    [self updateYPosition];
 }
 
 ///////////////////////////////////////////////////////////////
