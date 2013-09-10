@@ -87,8 +87,12 @@
 
 + (void) setLocationTabBar
 {
-    [ZAActivityBar sharedView].offset = 49.0f;
-    [self updateYPosition];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [ZAActivityBar sharedView].offset = 84.0f;
+    } else {
+        [ZAActivityBar sharedView].offset = 49.0f;
+    }
+	[self updateYPosition];
 }
 
 + (void) setLocationNavBar
